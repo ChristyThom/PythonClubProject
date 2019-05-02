@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'TechReviewProj.urls'
+ROOT_URLCONF = 'PythonClub.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'TechReviewProj.wsgi.application'
+WSGI_APPLICATION = 'PythonClub.wsgi.application'
 
 
 # Database
