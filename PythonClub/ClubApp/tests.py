@@ -3,6 +3,7 @@ from .models import Meeting, MeetingMinutes, Resource, Events
 from .views import index, getResources, getMeeting
 from django.urls import reverse
 from django.contrib.auth.models import User
+from .forms import ResourceForm
 
 class MeetingTest(TestCase):
     def test_string(self):
@@ -37,3 +38,19 @@ class getResourcesTest(TestCase):
     def test_view_url_accessible_by_name(self):
         response = self.client.get(reverse('resources'))
         self.assertEqual(response.status_code, 200)
+
+# ---------- FORMS ----------
+class ResourceFormTest(TestCase):
+    def test_typeform_is_valid(self):
+        form=ResourceForm(
+            data={
+                'resourcename' : "newresource", 
+                'resourcetype' : "movie", 
+                'resourceURL' : "pythonthamovie.com", 
+                'user' : "pollypython", 
+                'rating' : "5stars",
+                'reviewtext' : "it's a great thing to have a python movie not about sneks",
+
+            }
+        )
+        self.assertTrue(form.is_valid())
